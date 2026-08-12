@@ -14,7 +14,7 @@ public class SleeplessNightsDetector implements Function<List<SleepingSession>, 
         boolean isFirstSessionBeforeNoon = sleepingSessions.getFirst().bedTime.toLocalTime()
                 .isBefore(LocalTime.of(12, 0));
         List<SleepingSession> nightsSession = sleepingSessions.stream()
-                .filter( session -> {
+                .filter(session -> {
                     LocalDate nigthDate = session.wakeUpTime.toLocalDate();
                     return session.bedTime.isBefore(nigthDate.atTime(6, 0)) &&
                             session.wakeUpTime.isAfter(nigthDate.atTime(0,0));
