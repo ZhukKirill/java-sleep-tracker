@@ -26,7 +26,7 @@ public class AverageDurationDetectorTest {
         assertTrue(result.endsWith("60"));
     }
     @Test
-    void ShouldReturnfourHundredAndEightyMinutes() {
+    void ShouldReturnFourHundredAndEightyMinutes() {
         SleepingSession firstSession = new SleepingSession(LocalDateTime.of(25,
                 10, 1, 23, 15),
                 LocalDateTime.of(25, 10, 2, 7, 15), Quality.GOOD);
