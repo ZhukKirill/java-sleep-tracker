@@ -20,7 +20,7 @@ public class ChronotypeDetectorTest {
                 10, 4, 5, 59),
                 LocalDateTime.of(25, 10, 4, 10, 0), Quality.NORMAL);
         SleepingSession fourthSession = new SleepingSession(LocalDateTime.of(25,
-                10, 4,19 ,15),
+                10, 4,19,15),
                 LocalDateTime.of(25, 10, 5, 0, 1), Quality.NORMAL);
         List<SleepingSession> sleepingSessions = new ArrayList<>(List.of(firstSession, secondSession,
                 thirdSession, fourthSession));
@@ -41,7 +41,7 @@ public class ChronotypeDetectorTest {
                 10, 3, 20, 59),
                 LocalDateTime.of(25, 10, 4, 5, 0), Quality.NORMAL);
         SleepingSession fourthSession = new SleepingSession(LocalDateTime.of(25,
-                10, 4,19 ,15),
+                10, 4,19,15),
                 LocalDateTime.of(25, 10, 5, 0, 1), Quality.NORMAL);
         List<SleepingSession> sleepingSessions = new ArrayList<>(List.of(firstSession, secondSession,
                 thirdSession, fourthSession));
@@ -62,7 +62,7 @@ public class ChronotypeDetectorTest {
                 10, 3, 22, 59),
                 LocalDateTime.of(25, 10, 4, 5, 0), Quality.NORMAL);
         SleepingSession fourthSession = new SleepingSession(LocalDateTime.of(25,
-                10, 4,21 ,15),
+                10, 4,21,15),
                 LocalDateTime.of(25, 10, 5, 8, 1), Quality.NORMAL);
         List<SleepingSession> sleepingSessions = new ArrayList<>(List.of(firstSession, secondSession,
                 thirdSession, fourthSession));
@@ -83,7 +83,7 @@ public class ChronotypeDetectorTest {
                 10, 3, 20, 59),
                 LocalDateTime.of(25, 10, 4, 5, 0), Quality.NORMAL);
         SleepingSession fourthSession = new SleepingSession(LocalDateTime.of(25,
-                10, 4,23 ,15),
+                10, 4,23,15),
                 LocalDateTime.of(25, 10, 5, 9, 1), Quality.NORMAL);
         List<SleepingSession> sleepingSessions = new ArrayList<>(List.of(firstSession, secondSession,
                 thirdSession, fourthSession));
