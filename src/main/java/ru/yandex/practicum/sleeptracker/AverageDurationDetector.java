@@ -13,7 +13,7 @@ public class AverageDurationDetector implements Function<List<SleepingSession>, 
             averageDuration = 0;
             return new SleepAnalysisResult(averageDuration, description);
         } else {
-            averageDuration = sumMinutes(sleepingSessions, 0)/sleepingSessions.size();
+            averageDuration = sumMinutes(sleepingSessions, 0) / sleepingSessions.size();
             return new SleepAnalysisResult(averageDuration, description);
         }
     }
