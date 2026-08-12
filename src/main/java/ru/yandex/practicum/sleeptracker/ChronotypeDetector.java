@@ -10,7 +10,7 @@ public class ChronotypeDetector implements Function<List<SleepingSession>, Sleep
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         String description = "Ваш хронотип";
         List<SleepingSession> nightsSession = sleepingSessions.stream()
-                .filter( session -> {
+                .filter(session -> {
                     LocalDate nigthDate = session.wakeUpTime.toLocalDate();
                     return session.bedTime.isBefore(nigthDate.atTime(6, 0)) &&
                             session.wakeUpTime.isAfter(nigthDate.atTime(0,0));
