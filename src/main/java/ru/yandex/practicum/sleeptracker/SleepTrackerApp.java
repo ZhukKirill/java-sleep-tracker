@@ -22,7 +22,7 @@ public class SleepTrackerApp {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
             sleepingSessions = logLines.stream()
 
-                    .map( session -> SleepingSession.convertFromStringToSleepingSession(session, formatter))
+                    .map(session -> SleepingSession.convertFromStringToSleepingSession(session, formatter))
                     .toList();
 
         } catch (IOException e) {
