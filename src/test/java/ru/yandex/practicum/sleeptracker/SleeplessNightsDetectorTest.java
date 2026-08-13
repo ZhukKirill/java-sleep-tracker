@@ -9,7 +9,7 @@ import java.util.List;
 public class SleeplessNightsDetectorTest {
 
     @Test
-    void shouldReturnTwoSleeplessSessionsInFourNights() {
+    void shouldReturnTwoSleeplessSessionsOutOfFourNights() {
         SleepingSession firstSession = new SleepingSession(LocalDateTime.of(25,
                 10, 1, 20, 15),
                 LocalDateTime.of(25, 10, 1, 23, 15), Quality.GOOD);
@@ -27,10 +27,15 @@ public class SleeplessNightsDetectorTest {
         SleeplessNightsDetector sleeplessNightsDetector = new SleeplessNightsDetector();
         String result = sleeplessNightsDetector.apply(sleepingSessions).toString();
         assertTrue(result.endsWith("2"));
+
+        List<SleepingSession> nightsSession = sleeplessNightsDetector.getNightsSession();
+        boolean isFirstAndSecondSessionsDaytime = !nightsSession.contains(firstSession)
+                && !nightsSession.contains(secondSession);
+        assertTrue(isFirstAndSecondSessionsDaytime);
     }
 
     @Test
-    void shouldReturnOneSleeplessSessionInFourNights() {
+    void shouldReturnOneSleeplessNightsOutOfFourNights() {
         SleepingSession firstSession = new SleepingSession(LocalDateTime.of(25,
                 10, 1, 10, 15),
                 LocalDateTime.of(25, 10, 1, 23, 15), Quality.GOOD);
@@ -48,10 +53,14 @@ public class SleeplessNightsDetectorTest {
         SleeplessNightsDetector sleeplessNightsDetector = new SleeplessNightsDetector();
         String result = sleeplessNightsDetector.apply(sleepingSessions).toString();
         assertTrue(result.endsWith("1"));
+
+        List<SleepingSession> nightsSession = sleeplessNightsDetector.getNightsSession();
+        boolean isFirstSessionDaytime = !nightsSession.contains(firstSession);
+        assertTrue(isFirstSessionDaytime);
     }
 
     @Test
-    void shouldReturnZeroSleeplessSessionInFourNights() {
+    void shouldReturnZeroSleeplessNightsOutOfFourNights() {
         SleepingSession firstSession = new SleepingSession(LocalDateTime.of(25,
                 10, 1, 23, 15),
                 LocalDateTime.of(25, 10, 2, 1, 15), Quality.GOOD);
@@ -72,7 +81,7 @@ public class SleeplessNightsDetectorTest {
     }
 
     @Test
-    void shouldReturnFourSleeplessSessionInFourNights() {
+    void shouldReturnFourSleeplessNightsOutOfFourNights() {
         SleepingSession firstSession = new SleepingSession(LocalDateTime.of(25,
                 10, 1, 20, 15),
                 LocalDateTime.of(25, 10, 1, 23, 15), Quality.GOOD);
@@ -90,5 +99,11 @@ public class SleeplessNightsDetectorTest {
         SleeplessNightsDetector sleeplessNightsDetector = new SleeplessNightsDetector();
         String result = sleeplessNightsDetector.apply(sleepingSessions).toString();
         assertTrue(result.endsWith("4"));
+
+        List<SleepingSession> nightsSession = sleeplessNightsDetector.getNightsSession();
+        boolean areAllSessionsDaytime = !nightsSession.contains(firstSession) && !nightsSession.contains(secondSession)
+                && !nightsSession.contains(thirdSession) && !nightsSession.contains(fourthSession);
+        assertTrue(areAllSessionsDaytime);
     }
+
 }
